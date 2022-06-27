@@ -1,4 +1,4 @@
-# NLP - BERT Named-Entity_Recognition
+# NLP - BERT Named-Entity Recognition
 
 | Entities     | precision    | recall       | f1-score     | support      |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
