@@ -65,10 +65,9 @@ git clone https://huggingface.co/dmis-lab/biobert-v1.1
 # Model Output
 
 ```yaml
--rwxrwxrwx 1 dimas dimas  617 Jun 25 20:12 config.json
--rwxrwxrwx 1 dimas dimas 414M Jun 25 20:12 pytorch_model.bin
--rwxrwxrwx 1 dimas dimas    0 Jun 27 18:31 Readme.md
--rwxrwxrwx 1 dimas dimas  112 Jun 19 13:43 special_tokens_map.json
--rwxrwxrwx 1 dimas dimas   49 Jun  1 10:14 tokenizer_config.json
--rwxrwxrwx 1 dimas dimas 209K Jun 25 20:12 vocab.txt
+- 617  Jun 25 20:12 config.json
+- 414M Jun 25 20:12 pytorch_model.bin
+- 112  Jun 19 13:43 special_tokens_map.json
+- 49   Jun  1 10:14 tokenizer_config.json
+- 209K Jun 25 20:12 vocab.txt
 ```
