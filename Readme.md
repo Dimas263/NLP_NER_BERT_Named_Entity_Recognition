@@ -1,73 +1,51 @@
-# NLP - BERT Named-Entity Recognition
+# NLP
+# Named Entity Recognition (NER) - BERT
 
-# Architecture
+## <img src="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/64/000000/external-manager-hotel-smashingstocks-flat-smashing-stocks-2.png"/> **`Slamet Riyanto S.Kom., M.M.S.I.`**
+4
+​
+5
+## <img src="https://img.icons8.com/external-fauzidea-flat-fauzidea/64/undefined/external-man-avatar-avatar-fauzidea-flat-fauzidea.png"/> **`Dimas Dwi Putra`**
 
-<img src="NER%20Architecture.png">
+## Architecture
+<img src="NER%20Architecture.png" width="7257">
 
-# [Dataset](input/ner_dataset.csv)
-
-| Sentence #  | Word        | POS | Tag     |
-| ----------- | ----------- | --- | ------- |
-| Sentence: 0 | studies     | NNS | O       |
-| Sentence: 0 | on          | IN  | O       |
-| Sentence: 0 | magnesium   | NN  | O       |
-| Sentence: 0 | s           | NN  | O       |
-| Sentence: 0 | mechanism   | NN  | O       |
-| Sentence: 0 | of          | IN  | O       |
-| Sentence: 0 | action      | NN  | O       |
-| Sentence: 0 | in          | IN  | O       |
-| Sentence: 0 | digitalis   | NN  | plant   |
-| Sentence: 0 | induced     | VBD | O       |
-| Sentence: 0 | arrhythmias | NNS | disease |
+## Dataset
+| Sentence #  | Word        | POS | Tag       |
+| ----------- | ----------- | --- | --------- |
+| Sentence: 0 | studies     | NNS | O         |
+| Sentence: 0 | on          | IN  | O         |
+| Sentence: 0 | magnesium   | NN  | O         |
+| Sentence: 0 | s           | NN  | O         |
+| Sentence: 0 | mechanism   | NN  | O         |
+| Sentence: 0 | of          | IN  | O         |
+| Sentence: 0 | action      | NN  | O         |
+| Sentence: 0 | in          | IN  | O         |
+| Sentence: 0 | digitalis   | NN  | B-plant   |
+| Sentence: 0 | induced     | VBD | O         |
+| Sentence: 0 | arrhythmias | NNS | B-disease |
 ...
 
-# Labels
-
-```yaml
-{'O': 0, 'disease': 2, 'plant': 1}
-```
-
-# Config
-
-```yaml
-MAX_LEN = 300
-TRAIN_BATCH_SIZE = 8
-VALID_BATCH_SIZE = 4
-EPOCHS = 10
-LEARNING_RATE = 1e-05
-MAX_GRAD_NORM = 10
-```
-
-# Tokenizer And Model
-
+## Model 
 ```yaml
 git clone https://huggingface.co/dmis-lab/biobert-v1.1
 ```
 
-# Scores
+## Eval
+| Entities     | precision | recall | f1-score | support | Train Batch Size | Valid Batch Size | Epochs | Learning Rate | Max Grad Norm | execution time |
+| ------------ | --------- | ------ | -------- | ------- | ---------------- | ---------------- | ------ | ------------- | ------------- | -------------- |
+| O            | 96,03%    | 96,77% | 96,40%   | 4645    | 8                | 4                | 25     | 0,00001       | 10            | 0.20.11        |
+| disease      | 72,49%    | 64,38% | 68,19%   | 393     |                  |                  |        |               |               |                |
+| plant        | 81,31%    | 83,63% | 82,46%   | 281     |                  |                  |        |               |               |                |
+| accuracy     | 93,68%    | 93,68% | 93,68%   | 0       |                  |                  |        |               |               |                |
+| macro avg    | 83,28%    | 81,59% | 82,35%   | 5319    |                  |                  |        |               |               |                |
+| weighted avg | 93,51%    | 93,68% | 93,58%   | 5319    |                  |                  |        |               |               |                |
+| F-1 Scores   |           |        | 93,68%   |         |                  |                  |        |               |               |                |
 
-| Entities     | precision    | recall       | f1-score     |
-| ------------ | ------------ | ------------ | ------------ |
-| O            | 0,9734890619 | 0,9767485119 | 0,9751160631 |
-| disease      | 0,8463157895 | 0,7686424474 | 0,8056112224 |
-| plant        | 0,8722358722 | 0,9416445623 | 0,9056122449 |
-| accuracy     | 0,9572976418 | 0,9572976418 | 0,9572976418 |
-| macro avg    | 0,8973469079 | 0,8956785072 | 0,8954465102 |
-| weighted avg | 0,9568089991 | 0,9572976418 | 0,9568155579 |
-
-# Predict
-
+## Predict
 ```yaml
 ['examination', 'of', 'the', 'data', 'from', 'all', 'ten', 'experiments', 'revealed', 'that', 'complete', 'tumor', 'tumor', 'regression', 'occurred', 'in', '14', 'of', '346', 'papilloma', 'bearing', 'mice', '4', 'that', 'were', 'treated', 'with', 'green', 'green', 'tea', 'tea', 'in', 'the', 'drinking', 'water', 'or', 'with', 'i', 'p', 'injections', 'of', 'green', 'green', 'tea', 'tea', 'constituents', 'whereas', 'none', 'of', 'the', '220', 'papilloma', 'bearing', 'control', 'mice', 'treated', 'with', 'only', 'vehicle', 'exhibited', 'complete', 'tumor', 'tumor']
-['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'disease', 'disease', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'plant', 'plant', 'plant', 'plant', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'plant', 'plant', 'plant', 'plant', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'disease', 'disease']
+['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'disease', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'plant', 'plant', 'plant', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'plant', 'plant', 'plant', 'plant', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'disease', 'disease']
 ```
-
-# Model Output
-
-```yaml
-- 617  Jun 25 20:12 config.json
-- 414M Jun 25 20:12 pytorch_model.bin
-- 112  Jun 19 13:43 special_tokens_map.json
-- 49   Jun  1 10:14 tokenizer_config.json
-- 209K Jun 25 20:12 vocab.txt
-```
+## Output
+## New Pretrained Model [BioBert-Plant-Disease](output/biobert-plant-disease) 
