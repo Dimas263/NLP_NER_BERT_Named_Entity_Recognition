@@ -6,9 +6,11 @@
 ## <img src="https://img.icons8.com/external-fauzidea-flat-fauzidea/64/undefined/external-man-avatar-avatar-fauzidea-flat-fauzidea.png"/> **`Dimas Dwi Putra`**
 
 ## Architecture
+<p align="center">
 <img src="NER%20Architecture.png" width="7257">
+</p>
 
-## Dataset
+## Dataset<br>[View Dataset .csv](input/)
 | Sentence #  | Word        | POS | Tag       |
 | ----------- | ----------- | --- | --------- |
 | Sentence: 0 | studies     | NNS | O         |
@@ -24,12 +26,12 @@
 | Sentence: 0 | arrhythmias | NNS | B-disease |
 ...
 
-## Model 
+## Model<br>[View BERT Model](https://huggingface.co/dmis-lab/biobert-v1.1)
 ```yaml
 git clone https://huggingface.co/dmis-lab/biobert-v1.1
 ```
 
-## Eval
+## Eval<br>[View Eval Report .xlsx](BERT_Report.xlsx)
 | Entities     | precision | recall | f1-score | support | Train Batch Size | Valid Batch Size | Epochs | Learning Rate | Max Grad Norm | execution time |
 | ------------ | --------- | ------ | -------- | ------- | ---------------- | ---------------- | ------ | ------------- | ------------- | -------------- |
 | O            | 96,03%    | 96,77% | 96,40%   | 4645    | 8                | 4                | 25     | 0,00001       | 10            | 0.20.11        |
@@ -63,7 +65,7 @@ git clone https://huggingface.co/dmis-lab/biobert-v1.1
 #### [6. NER BERT BiLSTM CRF Named Entity Recognition](https://github.com/Dimas263/NLP_NER_BERT_BILSTM_CRF_Named_Entity_Recognition)
 
 
-### **Relation Extraction (NER)**
+### **Relation Extraction (RE)**
 #### [1. RE Dataset Biomedical Plant-Disease Corpus](https://github.com/Dimas263/NLP_RE_Dataset_Biomedical_Plant-Disease_Corpus)
 #### [2. RE BERT Relation Extraction Biomedical](https://github.com/Dimas263/NLP_RE_BERT_Relation_Extraction_Biomedical)
 #### [3. RE BiLSTM CRF Relation Extraction Biomedical](https://github.com/Dimas263/NLP_RE_BILSTM_CRF_Relation_Extraction_Biomedical)
